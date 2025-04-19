@@ -1,0 +1,8 @@
+.search { display: flex; gap: 0.6rem; }
+.search input {
+  flex: 1; padding: 0.6rem; border-radius: var(--radius); border: none;
+}
+.search button {
+  padding: 0.6rem 1rem; background: var(--accent); color: #fff; border: none;
+  border-radius: var(--radius); cursor: pointer;
+}

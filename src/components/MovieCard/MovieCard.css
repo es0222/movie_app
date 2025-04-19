@@ -1,0 +1,15 @@
+.card {
+    background: #1b1b1b;
+    border-radius: var(--radius);
+    overflow: hidden;
+    
+    transition: transform .2s;
+  }
+  .card img{
+    width: 100%;
+  
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card__body { padding: 0.8rem; }
+  .card h3 { font-size: 1rem; margin-bottom: 0.2rem; }
+  

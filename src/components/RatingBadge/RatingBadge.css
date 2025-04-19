@@ -1,0 +1,10 @@
+.badge {
+    display: inline-block;
+    margin-top: 0.3rem;
+    padding: 0.15rem 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    border-radius: var(--radius);
+  }
+  

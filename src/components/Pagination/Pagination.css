@@ -1,0 +1,3 @@
+.pager { display: flex; gap: 1rem; justify-content: center; margin: 2rem 0; }
+button { padding: .4rem .9rem; border-radius: var(--radius); border: none; cursor: pointer;}
+button:disabled { opacity: 0.4; cursor: not-allowed; }

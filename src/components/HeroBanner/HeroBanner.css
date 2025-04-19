@@ -1,0 +1,15 @@
+.hero {
+    background:url("/assets/hero.jpg") center/cover no-repeat;
+    padding:6rem 0 7rem;
+    text-align:center;
+    margin: 9rem 0rem;
+  }
+  .hero h1 { font-size:2.2rem; margin-bottom:.7rem; }
+  .hero p  { font-size:1.1rem; opacity:.85; margin-bottom:1.8rem; }
+  
+  /* keep the search bar centered & responsive */
+  .hero__inner .search {
+    max-width:600px;
+    margin-inline:auto;         /* center horizontally */
+  }
+  

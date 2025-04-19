@@ -1,0 +1,31 @@
+/* MovieSection.css  */
+/* -------------- Layout for the section wrapper -------------- */
+.section {
+
+    margin-block: 5rem; 
+              /* top & bottom spacing */
+  }
+  
+  /* -------------- Heading style -------------- */
+  .section__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: #ffffff;                  /* keep headings bright on dark bg */
+  }
+  
+  /* Optional: add a thin accent bar under each title */
+  .section__title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin-top: 0.4rem;
+    background: var(--accent, #f31260); /* falls back to pink accent */
+    border-radius: 3px;
+  }
+  
+  .movie_home{
+    display: flex;
+    flex-wrap: wrap;
+  }

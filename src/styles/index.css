@@ -1,0 +1,20 @@
+/* Simple normalize + CSS vars */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  font-family: system-ui, sans-serif;
+  background: #0d0d0d;
+  color: #e5e5e5;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+:root {
+  --accent: #f31260;
+  --radius: 6px;
+}
+.container { width: min(90%, 1200px); margin-inline: auto; }
