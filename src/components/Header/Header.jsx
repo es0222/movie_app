@@ -13,6 +13,7 @@ const Header = () => (
           Home
         </NavLink>
         <NavLink to="/all">Movies</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
         {/* Removed “Popular” link because that content lives on Home now */}
         <button className="bg-transparent text-red-500 border-2 border-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition-all duration-300">
           Sign Up

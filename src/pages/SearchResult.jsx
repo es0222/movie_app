@@ -23,7 +23,7 @@ export default () => {
 
   return (
     <>
-      <h1>Search results for “{q}”</h1>
+      <h1 className="font-medium">Search results for “{q}”</h1>
       <MovieGrid movies={list} />
     </>
   );

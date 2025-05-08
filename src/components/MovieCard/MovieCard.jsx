@@ -8,7 +8,7 @@ const MovieCard = ({ movie }) => (
       alt={movie.title}
     />
     <div className="card__body">
-      <h3>{movie.title}</h3>
+      <h3 className="font-bold">{movie.title}</h3>
       <p>{movie.release_date}</p>
       <RatingBadge value={movie.vote_average} />
     </div>

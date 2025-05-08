@@ -14,11 +14,12 @@ function AllMovies() {
 
   getMovies();
 }, []);
-return(
+return (
   <>
-    <h1>All Movies</h1>
+    <h1 className="font-medium text-4xl m-8">All Movies</h1>
     {console.log(allMovies)}
     <MovieGrid movies={allMovies} />
-  </>)
+  </>
+);
 };
 export default AllMovies;

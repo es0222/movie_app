@@ -13,7 +13,8 @@ const SearchBar = ({ onSearch }) => {
         type="text"
         placeholder="Search movie title"
         value={q}
-        onChange={e => setQ(e.target.value)}
+        onChange={(e) => setQ(e.target.value)}
+        className="bg-white text-black border-red-400 border-3"
       />
       <button>Search</button>
     </form>

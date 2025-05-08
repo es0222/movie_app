@@ -8,7 +8,8 @@
   }
   .logo { font-weight: 700; }
   nav a { margin-left: 1.5rem; }
-  nav a.active { color: var(--accent); }
+  nav a.active { color:rgba(255, 11, 11, 0.953);
+  font-weight: 600; }
   .btn {
     padding: .4rem .9rem;
     background: var(--accent);
@@ -23,10 +24,10 @@
     color: red;
   }
 
-  button{
+  button{font-weight: 600;
+    
   padding: 0.6rem 1rem;
-  background: var(--accent);
-  color: #fff;
+  background:rgba(221, 21, 21, 0.899);  color: #fff;
   border: none;
   margin-left: 1rem;
   border-radius: var(--radius);
@@ -38,5 +39,5 @@
 }
   button:hover{
 
-    background-color:rgba(243, 18, 97, 0.479) ;
+    background-color:rgb(182, 6, 6) ;
   }
