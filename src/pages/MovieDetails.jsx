@@ -51,7 +51,7 @@ console.log(topMovies);
 
         <div className="col-12 col-md-8">
           <div>
-            <div className="title">
+            <div className="movie-title">
               <h1 className="h3 fw-bolder fs-3 text-light">
                 {movie.title}
 

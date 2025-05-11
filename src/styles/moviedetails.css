@@ -2,7 +2,7 @@
      margin-left: 500px;
      font-weight: 300;
 }
-.title p::after,.related h2::after{
+.movie-title p::after,.related h2::after{
     content: "";
     display: block;
     width: 60px;

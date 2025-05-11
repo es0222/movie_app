@@ -2,13 +2,21 @@ import { useState, useEffect } from "react";
 import MovieGrid from "../components/MovieGrid/MovieGrid";
 import { fetchPopularMovies } from "/src/data/movieApi.js";
 import Pagination from "../components/Pagination/Pagination";
+import MovieFilter from "../components/MovieFilter/MovieFilter";
 
 function AllMovies() {
   const [allMovies, setAllMovies] = useState([]);
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const [moviesPerPage] = useState(8); // Adjust this number as needed
+  const [moviesPerPage] = useState(8);
+
+  // Filter state
+  const [filters, setFilters] = useState({
+    genre: "All",
+    sort: "",
+    search: "",
+  });
 
   useEffect(() => {
     const getMovies = async () => {
@@ -19,22 +27,39 @@ function AllMovies() {
     getMovies();
   }, []);
 
+  // Filter and sort movies
+  const filteredMovies = allMovies
+    .filter((movie) => {
+      const matchGenre =
+        filters.genre === "All" ||
+        movie.genre_ids.includes(parseInt(filters.genre));
+      const matchSearch = movie.title
+        .toLowerCase()
+        .includes(filters.search.toLowerCase());
+      return matchGenre && matchSearch;
+    })
+    .sort((a, b) => {
+      if (filters.sort === "rating") return b.vote_average - a.vote_average;
+      if (filters.sort === "release")
+        return new Date(b.release_date) - new Date(a.release_date);
+      return 0;
+    });
+
   // Get current movies for pagination
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-  const currentMovies = allMovies.slice(indexOfFirstMovie, indexOfLastMovie);
+  const currentMovies = filteredMovies.slice(
+    indexOfFirstMovie,
+    indexOfLastMovie
+  );
 
-  // Change page
+  // Pagination controls
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  // Go to next page
   const nextPage = () => {
-    if (currentPage < Math.ceil(allMovies.length / moviesPerPage)) {
+    if (currentPage < Math.ceil(filteredMovies.length / moviesPerPage)) {
       setCurrentPage(currentPage + 1);
     }
   };
-
-  // Go to previous page
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
@@ -43,12 +68,16 @@ function AllMovies() {
 
   return (
     <>
-      <h1 className="text-start text-white m-4 title ">All Movies</h1>
+      <h1 className="text-start text-white m-4 title">All Movies</h1>
+      <div className="container  p-3 rounded">
+        <MovieFilter filters={filters} setFilters={setFilters} />
+      </div>
+
       <MovieGrid movies={currentMovies} />
 
       <Pagination
         moviesPerPage={moviesPerPage}
-        totalMovies={allMovies.length}
+        totalMovies={filteredMovies.length}
         paginate={paginate}
         nextPage={nextPage}
         prevPage={prevPage}
