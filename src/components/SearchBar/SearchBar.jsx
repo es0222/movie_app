@@ -11,12 +11,12 @@ const SearchBar = ({ onSearch }) => {
     <form className="search" onSubmit={submit}>
       <input
         type="text"
-        placeholder="Search movie title"
+        placeholder="Search movie by title"
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        className="bg-white text-black border-red-400 border-3"
+        
       />
-      <button>Search</button>
+      <button >Search</button>
     </form>
   );
 };

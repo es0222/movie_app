@@ -1,3 +1,56 @@
-.pager { display: flex; gap: 1rem; justify-content: center; margin: 2rem 0; }
-button { padding: .4rem .9rem; border-radius: var(--radius); border: none; cursor: pointer;}
-button:disabled { opacity: 0.4; cursor: not-allowed; }
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+  }
+  
+  .pagination {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .page-item {
+    margin: 0;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #e50914; /* SpotFlix red color from your UI */
+    color: white;
+  }
+  
+  .page-item.disabled .page-link {
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  .page-link {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .page-link:hover:not(:disabled) {
+    background-color: rgba(229, 9, 20, 0.7);
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .pagination {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .page-link {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }

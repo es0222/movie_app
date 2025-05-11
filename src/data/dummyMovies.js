@@ -12,3 +12,11 @@ const fetchData = async (endpoint) => {
 export const fetchPopularMovies = () => fetchData("/movie/popular");
 export const fetchTopRatedMovies = () => fetchData("/movie/top_rated");
 export const fetchTrendingMovies = () => fetchData("/trending/movie/day");
+
+export const fetchMovieById = async (id) => {
+  const res = await fetch(
+    `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`
+  );
+  const data = await res.json();
+  return data;
+};

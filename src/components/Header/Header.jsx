@@ -1,26 +1,70 @@
 import { NavLink, Link } from "react-router-dom";
-import "./Header.css";
+
 
 const Header = () => (
-  <header className="header">
-    <div className="container header__inner">
-      <Link to="/" className="logo">
-        <spin className="first-latter">S</spin>potFlix
+  <nav className="navbar navbar-expand-lg navbar-dark border-bottom  border-danger">
+    <div className="container">
+      <Link className="navbar-brand fw-bolder" to="/">
+        <span className="first-latter fs-4 text-danger">S</span>potFlix
       </Link>
-
-      <nav>
-        <NavLink to="/" end>
-          Home
-        </NavLink>
-        <NavLink to="/all">Movies</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
-        {/* Removed “Popular” link because that content lives on Home now */}
-        <button className="bg-transparent text-red-500 border-2 border-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition-all duration-300">
-          Sign Up
-        </button>
-      </nav>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav ms-auto ">
+          <li className="nav-item">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-danger fw-bolder"
+                  : "nav-link text-white"
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-danger fw-bolder"
+                  : "nav-link text-white"
+              }
+              to="/all"
+            >
+              Movies
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-danger fw-bolder"
+                  : "nav-link text-white"
+              }
+              to="/contact"
+            >
+              Contact
+            </NavLink>
+          </li>
+          <li className="nav-item ms-4">
+            <Link className="btn btn-outline-danger" to="/signup">
+              Sign Up
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
-  </header>
+  </nav>
 );
 
 export default Header;

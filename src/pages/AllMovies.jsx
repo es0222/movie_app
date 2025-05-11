@@ -1,25 +1,61 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import MovieGrid from "../components/MovieGrid/MovieGrid";
 import { fetchPopularMovies } from "/src/data/dummyMovies.js";
+import Pagination from "../components/Pagination/Pagination";
 
 function AllMovies() {
-  
-  const [allMovies, setAllMovies]=useState([])
-  useEffect(() => {
-  const getMovies = async () => {
-    const movies = await fetchPopularMovies(); // or any endpoint you want
+  const [allMovies, setAllMovies] = useState([]);
 
-    setAllMovies(movies);
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [moviesPerPage] = useState(8); // Adjust this number as needed
+
+  useEffect(() => {
+    const getMovies = async () => {
+      const movies = await fetchPopularMovies();
+      setAllMovies(movies);
+    };
+
+    getMovies();
+  }, []);
+
+  // Get current movies for pagination
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovies = allMovies.slice(indexOfFirstMovie, indexOfLastMovie);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Go to next page
+  const nextPage = () => {
+    if (currentPage < Math.ceil(allMovies.length / moviesPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
-  getMovies();
-}, []);
-return (
-  <>
-    <h1 className="font-medium text-4xl m-8">All Movies</h1>
-    {console.log(allMovies)}
-    <MovieGrid movies={allMovies} />
-  </>
-);
-};
+  // Go to previous page
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  return (
+    <>
+      <h1>All Movies</h1>
+      <MovieGrid movies={currentMovies} />
+
+      <Pagination
+        moviesPerPage={moviesPerPage}
+        totalMovies={allMovies.length}
+        paginate={paginate}
+        nextPage={nextPage}
+        prevPage={prevPage}
+        currentPage={currentPage}
+      />
+    </>
+  );
+}
+
 export default AllMovies;

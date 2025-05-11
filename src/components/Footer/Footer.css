@@ -1,13 +1,10 @@
 .footer {
     margin-top: 4rem;
     padding: 2rem 0;
-    background: #141414;
+    background: black;
     text-align: center;
     font-size: 0.9rem;
     border-top: 1px solid #222;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
+    
   }
   

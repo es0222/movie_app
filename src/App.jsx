@@ -3,10 +3,11 @@ import Header   from "./components/Header/Header";
 import Footer   from "./components/Footer/Footer";
 import AppRoutes from "./routes/AppRoutes";
 
+
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter >
     <Header />
-    <main className="container">
+    <main className="container" style={{backgroundColor:"black"}}>
       <AppRoutes />
     </main>
     <Footer />

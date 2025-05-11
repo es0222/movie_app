@@ -1,15 +1,26 @@
 .hero {
-    background:url("/assets/hero.jpg") center/cover no-repeat;
+    
+    background-color: rgba(0, 0, 0, 0.568);
     padding:6rem 0 7rem;
     text-align:center;
-    margin: 9rem 0rem;
+    margin: 5rem 0rem;
   }
-  .hero h1 { font-size:2.2rem; margin-bottom:.7rem; }
+  .back-home{
+background:url("/src/assets/Netflix-Hintergrund-2.webp") center/cover no-repeat;
+  }
+  .hero h1 { font-size:2.2rem; margin-bottom:.7rem;
+   
+    font-weight: 600;
+  }
   .hero p  { font-size:1.1rem; opacity:.85; margin-bottom:1.8rem; }
-  
+  .hero__inner{
+    justify-content: center;
+    align-items: center;
+
+  }
   /* keep the search bar centered & responsive */
   .hero__inner .search {
     max-width:600px;
-    margin-inline:auto;         /* center horizontally */
+    margin-inline:auto;     
   }
   

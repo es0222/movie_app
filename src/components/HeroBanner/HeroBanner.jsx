@@ -12,14 +12,18 @@ const HeroBanner = () => {
   };
 
   return (
+    <section className="back-home">
     <section className="hero">
       <div className="container hero__inner">
-        <h1>Discover Your Next Favorite Movie</h1>
-        <p>Search for movies and explore the world of cinema.</p>
+        <h1 className=" text-danger  ms-4">Discover Your Next Favorite Movie</h1>
+        <p className=" text-light">
+          Search for movies and explore the world of cinema.
+        </p>
 
         {/* ← search bar now lives here */}
         <SearchBar onSearch={handleSearch} />
       </div>
+    </section>
     </section>
   );
 };

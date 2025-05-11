@@ -1,0 +1,23 @@
+.avarage{
+     margin-left: 500px;
+     font-weight: 300;
+}
+.title p::after,.related h2::after{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+   
+    background: var(--accent, #f31260); /* falls back to pink accent */
+    border-radius: 3px;
+}
+.contant-container{
+    height: 70%;
+    background-color: #171717;
+}
+.img{
+    height: 90%;
+}
+.related h2::after{
+
+}

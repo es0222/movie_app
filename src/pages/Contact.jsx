@@ -1,41 +1,143 @@
 import "../styles/contact.css";
-import { useState } from "react";
-import backgroundImg from "../assets/Netflix-Hintergrund-2.webp"
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
+
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    categre: "",
-    message: "",
-  });
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    const formEl = form.current;
+    const name = formEl.name.value.trim();
+    const email = formEl.email.value.trim();
+    const message = formEl.message.value.trim();
+    if (!name || !email || !message) {
+      Swal.fire({
+        icon: "failed",
+        title: "Message not send!",
+        text: "Please fill in all fields before submitting.",
+        width: "350px",
+        background: "black",
+        color: "white",
+       
+        buttonsStyling: false, // نوقف التنسيق الافتراضي
+        customClass: {
+          confirmButton: "my-confirm-btn faild-btn",
+          popup: "my-popup",
+          backdrop: "my-backdrop",
+          title: "my-swal-title",
+          popup: "my-swal-popup",
+          htmlContainer: "my-swal-text",
+        }, 
+        confirmButtonColor: "red",
+        confirmButtonText: "OK",
+        didOpen: () => {
+          const popup = document.querySelector(".swal2-popup");
+          popup.style.border = "3px solid red";
+          popup.style.borderRadius = "12px";
+        },
+      });
+      return;
+    }
+
+    emailjs
+      .sendForm(
+        "service_jn7qtwl",
+        "template_m3oywzq",
+        form.current,
+        "gh_784McLCshM5swO"
+      )
+      .then(
+        (result) => {
+          Swal.fire({
+            icon: "success",
+            title: "Message Sent!",
+            text: "Your message has been sent successfully.",
+            width: "350px",
+            background: "black",
+            color: "white",
+            confirmButtonColor: "green",
+            confirmButtonText: "OK",
+            buttonsStyling: false, // نوقف التنسيق الافتراضي
+            customClass: {
+              confirmButton: "my-confirm-btn",
+              popup: "my-popup",
+              backdrop: "my-backdrop",
+              title: "my-swal-title",
+              popup: "my-swal-popup",
+              htmlContainer: "my-swal-text",
+            },
+            backdrop: true,
+            didOpen: () => {
+              const popup = document.querySelector(".swal2-popup");
+              popup.style.border = "3px solid green";
+              popup.style.borderRadius = "12px";
+            },
+          });
+          console.log(result.text);
+          formEl.reset();
+        },
+        (error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Failed to send message. Please try again later.",
+            width: "350px",
+          });
+          console.log(error.text);
+        }
+      );
+  };
   return (
     <>
-      {/* home-div */}
-
       {/* form */}
-      <div className="home-container item-center ">
-        <h1 className="text-3xl ">Contact Us!</h1>
-        <form className="  w-5/6 ">
-          <div>
-            <label className="block">Movie Name</label>
+      <div className="container text-center my-5  ">
+        <h1 className="mb-4">Contact Us!</h1>
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="mx-auto  text-start  w-75"
+        >
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label fw-bold">
+              Name
+            </label>
             <input
               type="text"
-              className="bg-white w-full border-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+              name="name"
+              id="name"
+              placeholder="Nada"
+              className="form-control"
             />
           </div>
-          <div>
-            <label className="m-8">Categrie</label>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label fw-bold">
+              Email
+            </label>
             <input
-              className="block focus:outline-none focus:ring-2 focus:ring-red-500 bg-white w-full border-2 rounded-sm   "
-              type="text"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="nada@gmail.com"
+              className="form-control"
             />
           </div>
-          <div>
-            <label>Message</label>
-            <textarea className="block bg-white w-full border-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-red-500">
-              {" "}
-            </textarea>
+          <div className="mb-3 ">
+            <label htmlFor="message" className="form-label fw-bold">
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Suggest a movie"
+              className="form-control"
+              rows="4"
+            ></textarea>
           </div>
-          <button className="font-bold form-btn ">SEND</button>
+          <button type="submit" className="btn btn-danger px-4 py-2 fw-bold m-6">
+            SEND
+          </button>
         </form>
       </div>
     </>
