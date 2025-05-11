@@ -57,7 +57,7 @@ const Header = () => (
             </NavLink>
           </li>
           <li className="nav-item ms-4">
-            <Link className="btn btn-outline-danger" to="/signup">
+            <Link className="btn btn-outline-danger" to="/auth">
               Sign Up
             </Link>
           </li>

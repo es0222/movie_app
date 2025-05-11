@@ -1,6 +1,6 @@
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieGrid.css";
-import { fetchPopularMovies } from "/src/data/dummyMovies.js";
+import { fetchPopularMovies } from "/src/data/movieApi.js";
 import { useState,useEffect } from "react";
  const MovieGrid = ({ movies, small = false }) => {
    return (

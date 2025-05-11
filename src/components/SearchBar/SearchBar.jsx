@@ -8,15 +8,16 @@ const SearchBar = ({ onSearch }) => {
     onSearch(q);
   };
   return (
-    <form className="search" onSubmit={submit}>
+    <form className="search " onSubmit={submit}>
       <input
+      className=""
         type="text"
         placeholder="Search movie by title"
         value={q}
         onChange={(e) => setQ(e.target.value)}
         
       />
-      <button >Search</button>
+      <button className="search-btn" >Search</button>
     </form>
   );
 };

@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchMovieById,fetchTopRatedMovies } from "../data/dummyMovies";
+import { fetchMovieById,fetchTopRatedMovies } from "../data/movieApi";
 import RatingBadge from "../components/RatingBadge/RatingBadge";
 import "../styles/moviedetails.css"
 import MovieSection from "../components/MovieGrid/MovieGrid";
-import MovieGrid from "../components/MovieGrid/MovieGrid";
+
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);

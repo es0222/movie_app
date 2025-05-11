@@ -11,7 +11,7 @@
 .search input {
   flex: 1;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 17px;
   border-radius: 50px 0 0 50px;
   outline: none;
   font-size: 16px;
@@ -29,6 +29,7 @@
   transition: background-color 0.3s;
 }
 
-.search-button:hover {
-  background-color: #e55353;
+.search-btn:hover {
+
+  background-color:  #dc3545;
 }

@@ -93,12 +93,12 @@ function Contact() {
     <>
       {/* form */}
       <div className="container text-center my-5  ">
-        <h1 className="mb-4">Contact Us!</h1>
+        
         <form
           ref={form}
           onSubmit={sendEmail}
-          className="mx-auto  text-start  w-75"
-        >
+          className="mx-auto  text-start  "
+        ><h1 className="mb-4 text-start text-white title">Contact Us!</h1>
           <div className="mb-3">
             <label htmlFor="name" className="form-label fw-bold">
               Name
@@ -108,7 +108,7 @@ function Contact() {
               name="name"
               id="name"
               placeholder="Nada"
-              className="form-control"
+              className="form-control p-2"
             />
           </div>
           <div className="mb-3">
@@ -120,7 +120,7 @@ function Contact() {
               name="email"
               id="email"
               placeholder="nada@gmail.com"
-              className="form-control"
+              className="form-control p-2"
             />
           </div>
           <div className="mb-3 ">
@@ -135,7 +135,7 @@ function Contact() {
               rows="4"
             ></textarea>
           </div>
-          <button type="submit" className="btn btn-danger px-4 py-2 fw-bold m-6">
+          <button type="submit" className="btn contact-btn btn-danger px-4 py-2 fw-bold m-6">
             SEND
           </button>
         </form>

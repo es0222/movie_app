@@ -4,7 +4,7 @@ import {
   fetchPopularMovies,
   fetchTopRatedMovies,
   fetchTrendingMovies
-} from "/src/data/dummyMovies.js"
+} from "/src/data/movieApi.js"
 import { useState,useEffect } from "react";
 
 

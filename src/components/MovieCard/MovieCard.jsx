@@ -1,7 +1,6 @@
 import RatingBadge from "../RatingBadge/RatingBadge";
 import "./MovieCard.css";
 import { useNavigate } from "react-router-dom";
-
 const MovieCard = ({ movie,small }) => {
    const navigate = useNavigate();
   const handleClick = () => {

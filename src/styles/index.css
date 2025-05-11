@@ -17,7 +17,7 @@ html, body {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 :root {
-  --accent: #dc3545;
+  --accent: #9d1724;
   --radius: 6px;
 }
 /* .container { width: min(90%, 1200px); margin-inline: auto; } */

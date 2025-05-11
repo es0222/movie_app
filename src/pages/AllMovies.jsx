@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import MovieGrid from "../components/MovieGrid/MovieGrid";
-import { fetchPopularMovies } from "/src/data/dummyMovies.js";
+import { fetchPopularMovies } from "/src/data/movieApi.js";
 import Pagination from "../components/Pagination/Pagination";
 
 function AllMovies() {
@@ -43,7 +43,7 @@ function AllMovies() {
 
   return (
     <>
-      <h1>All Movies</h1>
+      <h1 className="text-start text-white m-4 title ">All Movies</h1>
       <MovieGrid movies={currentMovies} />
 
       <Pagination

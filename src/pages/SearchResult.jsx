@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MovieGrid from "../components/MovieGrid/MovieGrid";
-import { fetchPopularMovies } from "/src/data/dummyMovies.js";
+import { fetchPopularMovies } from "/src/data/movieApi.js";
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 
