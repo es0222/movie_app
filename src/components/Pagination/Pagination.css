@@ -2,14 +2,20 @@
     display: flex;
     justify-content: center;
     margin: 30px 0;
+    background: transparent;
+    background-color: black
   }
   
+  ul{
+    background-color: rgba(30, 30, 30, 0.8);
+
+  }
   .pagination {
     display: flex;
     list-style-type: none;
     padding: 0;
     margin: 0;
-    background-color: rgba(30, 30, 30, 0.8);
+    /* background-color: rgba(30, 30, 30, 0.8); */
     border-radius: 6px;
     overflow: hidden;
   }
@@ -17,22 +23,31 @@
   .page-item {
     margin: 0;
   }
-  
+  .page-link:focus,
+.page-link:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
   .page-item.active .page-link {
-    background-color: #e50914; /* SpotFlix red color from your UI */
-    color: white;
-  }
+  
+  color: red !important;
+}
+
   
   .page-item.disabled .page-link {
     color: #666;
     cursor: not-allowed;
+  }
+  .pagination-container ul li button{
+    border: none;
   }
   
   .page-link {
     padding: 10px 15px;
     cursor: pointer;
     border: none;
-    background: none;
+    
     color: white;
     font-size: 16px;
     transition: background-color 0.3s;

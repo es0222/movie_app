@@ -7,6 +7,21 @@ font-weight: 700;
 .contact-btn{
   background-color: var(--accent);
 }
+.my-faild-btn{
+
+  background-color: red; 
+  color: white;
+  padding: 10px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  width: fit-content;
+  transition: background-color 0.3s;
+
+}
 .my-confirm-btn {
   background-color: #28a745; 
   color: white;

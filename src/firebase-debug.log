@@ -1,0 +1,57 @@
+[debug] [2025-05-12T08:46:18.980Z] ----------------------------------------------------------------------
+[debug] [2025-05-12T08:46:18.986Z] Command:       C:\nvm4w\nodejs\node.exe C:\Users\Esraa\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2025-05-12T08:46:18.987Z] CLI Version:   14.3.1
+[debug] [2025-05-12T08:46:18.987Z] Platform:      win32
+[debug] [2025-05-12T08:46:18.988Z] Node Version:  v20.9.0
+[debug] [2025-05-12T08:46:18.988Z] Time:          Mon May 12 2025 01:46:18 GMT-0700 (Pacific Daylight Time)
+[debug] [2025-05-12T08:46:18.988Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-05-12T08:46:18.994Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-05-12T08:46:19.223Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-12T08:46:19.224Z] > authorizing via signed-in user (ek93611@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\MOVIE-LOGIN\movie_app\src
+
+[debug] [2025-05-12T08:46:19.530Z] *** [apiv2] error from fetch(https://firebase-public.firebaseio.com/cli.json, {"headers":{},"method":"GET"}): FetchError: request to https://firebase-public.firebaseio.com/cli.json failed, reason: certificate is not yet valid
+[warn] !  Unable to fetch the CLI MOTD and remote config. This is not a fatal error, but may indicate an issue with your network connection. 
+[debug] [2025-05-12T08:46:19.532Z] Failed to fetch MOTD FirebaseError: Failed to make request to https://firebase-public.firebaseio.com/cli.json
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-05-12T08:51:06.348Z] Checked if tokens are valid: false, expires at: 1702895161432
+[debug] [2025-05-12T08:51:06.349Z] Checked if tokens are valid: false, expires at: 1702895161432
+[debug] [2025-05-12T08:51:06.349Z] > refreshing access token with scopes: []
+[debug] [2025-05-12T08:51:06.351Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-05-12T08:51:06.351Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-05-12T08:51:06.647Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-05-12T08:51:06.648Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-05-12T08:51:06.650Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-05-12T08:51:06.908Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 401
+[debug] [2025-05-12T08:51:06.909Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-05-12T08:51:06.909Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-05-12T08:51:06.909Z] Checked if tokens are valid: false, expires at: 1702895161432
+[debug] [2025-05-12T08:51:06.910Z] Checked if tokens are valid: false, expires at: 1702895161432
+[debug] [2025-05-12T08:51:06.910Z] > refreshing access token with scopes: []
+[debug] [2025-05-12T08:51:06.911Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-05-12T08:51:06.911Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-05-12T08:51:07.014Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-05-12T08:51:07.015Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-05-12T08:51:07.018Z] Request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100 had HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2025-05-12T08:51:07.284Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100 had HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\Esraa\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:52:12)
+    at RetryOperation._fn (C:\Users\Esraa\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.

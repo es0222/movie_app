@@ -1,86 +1,65 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { fetchGenres } from "../../data/movieApi.js";
 
-const MovieFilter = ({ filters, setFilters }) => {
-  const genres = ["All", "Action", "Comedy", "Drama", "Horror", "Sci-Fi"];
+const MovieFilter = ({ filters={}, setFilters }) => {
+  const [genres, setGenres] = useState([{ id: "All", name: "All Genres" }]);
+
+  useEffect(() => {
+    const getGenres = async () => {
+      try {
+        const genreList = await fetchGenres();
+        setGenres((prev) => [...prev, ...genreList]);
+      } catch (error) {
+        console.error("Failed to fetch genres:", error);
+      }
+    };
+
+    getGenres();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFilters({ ...filters, [name]: value });
-  };
-
-  const handleReset = () => {
-    setFilters({ genre: "All", sort: "", search: "" });
+    setFilters((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
-    <form className="my-4">
-      <div className="row g-3 align-items-end">
-        {/* Search Input */}
-        <div className="col-md-4">
-          <label htmlFor="search" className="form-label">
-            Search
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="search"
-            name="search"
-            placeholder="Search by title..."
-            value={filters.search}
-            onChange={handleChange}
-          />
-        </div>
+    <div className="d-flex flex-column flex-md-row gap-3 mb-3">
+      <input
+        type="text"
+        name="search"
+        value={filters.search}
+        onChange={handleChange}
+        placeholder="Search by title"
+        className="form-control"
+      />
 
-        {/* Genre Select */}
-        <div className="col-md-3">
-          <label htmlFor="genre" className="form-label">
-            Genre
-          </label>
-          <select
-            id="genre"
-            name="genre"
-            className="form-select"
-            value={filters.genre}
-            onChange={handleChange}
-          >
-            {genres.map((g) => (
-              <option key={g} value={g}>
-                {g}
-              </option>
-            ))}
-          </select>
-        </div>
+      <select
+        name="genre"
+        value={filters.genre}
+        onChange={handleChange}
+        className="form-select"
+      >
+        {genres.map((genre) => (
+          <option key={genre.id} value={genre.id}>
+            {genre.name}
+          </option>
+        ))}
+      </select>
 
-        {/* Sort Select */}
-        <div className="col-md-3">
-          <label htmlFor="sort" className="form-label">
-            Sort By
-          </label>
-          <select
-            id="sort"
-            name="sort"
-            className="form-select"
-            value={filters.sort}
-            onChange={handleChange}
-          >
-            <option value="">None</option>
-            <option value="rating">Rating</option>
-            <option value="release">Release Date</option>
-          </select>
-        </div>
-
-        {/* Reset Button */}
-        <div className="col-md-2 d-grid">
-          <button
-            type="button"
-            className="btn btn-danger"
-            onClick={handleReset}
-          >
-            Reset
-          </button>
-        </div>
-      </div>
-    </form>
+      <select
+        name="sort"
+        value={filters.sort}
+        onChange={handleChange}
+        className="form-select"
+      >
+        <option value="">Sort</option>
+        <option value="rating">Rating (High to Low)</option>
+        <option value="release">Release Date (New to Old)</option>
+      </select>
+    </div>
   );
 };
 

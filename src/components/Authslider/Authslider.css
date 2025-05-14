@@ -2,7 +2,7 @@
 .container-auth {
   background: #fdfbfb;
   border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
               0 10px 10px rgba(0,0,0,0.22);
   position: relative;
   overflow: hidden;
@@ -23,7 +23,6 @@
   z-index: 2;
   padding: 0 50px;
   display: flex;
-  
 }
 
 .sign-in-container {
@@ -85,10 +84,6 @@ button.ghost {
   border-color: #fff;
 }
 
-/* button:active {
-  transform: scale(0.95);
-} */
-
 /* Overlay */
 .overlay-container {
   position: absolute;
@@ -106,8 +101,7 @@ button.ghost {
 }
 
 .overlay {
- background-color: #9d1724;
-
+  background-color: #9d1724;
   color: #ffffff;
   position: relative;
   left: -100%;
@@ -153,7 +147,46 @@ button.ghost {
   transform: translateX(20%);
 }
 
-/* Social buttons */
 
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .container-auth {
+    flex-direction: column;
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    margin: 20px auto;
+  }
 
+  .form-container {
+    position: relative;
+    width: 100%;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: auto !important;
+    padding: 20px;
+    height: auto;
+  }
 
+  .sign-up-container,
+  .sign-in-container {
+    transform: none !important;
+  }
+
+  .overlay-container {
+    display: none;
+  }
+
+  .auth-form {
+    padding: 20px 10px;
+  }
+
+  .auth-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .auth-input {
+    font-size: 14px;
+  }
+}

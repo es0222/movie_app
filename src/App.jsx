@@ -1,17 +1,18 @@
-import { BrowserRouter } from "react-router-dom";
-import Header   from "./components/Header/Header";
-import Footer   from "./components/Footer/Footer";
+// src/App.jsx
+import Header    from "./components/Header/Header";
+import Footer    from "./components/Footer/Footer";
 import AppRoutes from "./routes/AppRoutes";
 
-
-const App = () => (
-  <BrowserRouter >
-    <Header />
-    <main className="container" style={{backgroundColor:"black"}}>
-      <AppRoutes />
-    </main>
-    <Footer />
-  </BrowserRouter>
-);
+function App() {
+  return (
+    <>
+      <Header />
+      <main className="container" style={{ backgroundColor: "black" }}>
+        <AppRoutes />
+      </main>
+      <Footer />
+    </>
+  );
+}
 
 export default App;

@@ -23,7 +23,7 @@ function Contact() {
        
         buttonsStyling: false, // نوقف التنسيق الافتراضي
         customClass: {
-          confirmButton: "my-confirm-btn faild-btn",
+          confirmButton: "my-faild-btn faild-btn",
           popup: "my-popup",
           backdrop: "my-backdrop",
           title: "my-swal-title",
@@ -107,7 +107,7 @@ function Contact() {
               type="text"
               name="name"
               id="name"
-              placeholder="Nada"
+              placeholder="Enter your name"
               className="form-control p-2"
             />
           </div>
@@ -119,7 +119,7 @@ function Contact() {
               type="email"
               name="email"
               id="email"
-              placeholder="nada@gmail.com"
+              placeholder="Enter your email"
               className="form-control p-2"
             />
           </div>

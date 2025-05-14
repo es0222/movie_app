@@ -3,6 +3,7 @@ import MovieGrid from "../components/MovieGrid/MovieGrid";
 import { fetchPopularMovies } from "/src/data/movieApi.js";
 import Pagination from "../components/Pagination/Pagination";
 import MovieFilter from "../components/MovieFilter/MovieFilter";
+import { fetchManyMovies } from "../data/movieApi";
 
 function AllMovies() {
   const [allMovies, setAllMovies] = useState([]);
@@ -20,7 +21,7 @@ function AllMovies() {
 
   useEffect(() => {
     const getMovies = async () => {
-      const movies = await fetchPopularMovies();
+      const movies = await fetchManyMovies();
       setAllMovies(movies);
     };
 

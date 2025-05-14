@@ -22,7 +22,7 @@ const Pagination = ({
         <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
           <button
             onClick={prevPage}
-            className="page-link"
+            className="page-link bg-black text-secondary border-none"
             disabled={currentPage === 1}
           >
             &laquo; Prev
@@ -32,9 +32,14 @@ const Pagination = ({
         {pageNumbers.map((number) => (
           <li
             key={number}
-            className={`page-item ${currentPage === number ? "active" : ""}`}
+            className={`bg-black page-item ${
+              currentPage === number ? "active" : ""
+            }`}
           >
-            <button onClick={() => paginate(number)} className="page-link">
+            <button
+              onClick={() => paginate(number)}
+              className="page-link bg-black text-secondary"
+            >
               {number}
             </button>
           </li>
@@ -49,7 +54,7 @@ const Pagination = ({
         >
           <button
             onClick={nextPage}
-            className="page-link"
+            className="page-link bg-black text-secondary"
             disabled={currentPage === Math.ceil(totalMovies / moviesPerPage)}
           >
             Next &raquo;
